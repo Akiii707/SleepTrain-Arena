@@ -1,0 +1,181 @@
+# SleepTrain Arena - Task Configuration
+# ManiSkill Standard Tasks for Embodied AI Leaderboard
+
+pick_cube:
+  env_name: "PickCube-v0"
+  description: "基础操作任务 - 控制机械臂抓取立方体"
+  env_config:
+    obs_mode: "state"
+    control_mode: "pd_joint_pos"
+    reward_mode: "dense"
+  training:
+    algorithm: "PPO"
+    total_timesteps: 100000
+    learning_rate: 0.0003
+    batch_size: 64
+    n_steps: 2048
+    n_epochs: 10
+    gamma: 0.99
+    gae_lambda: 0.95
+  evaluation:
+    success_threshold: 0.8
+    target_rank: 50
+
+stack_blocks:
+  env_name: "StackCube-v0"
+  description: "中级操作任务 - 将一个立方体堆叠到另一个上面"
+  env_config:
+    obs_mode: "state"
+    control_mode: "pd_joint_pos"
+    reward_mode: "shaped"
+  training:
+    algorithm: "SAC"
+    total_timesteps: 200000
+    learning_rate: 0.0003
+    buffer_size: 100000
+    batch_size: 256
+    gamma: 0.99
+    tau: 0.005
+  evaluation:
+    success_threshold: 0.7
+    target_rank: 80
+
+open_door:
+  env_name: "OpenDoor-v0"
+  description: "高级操作任务 - 打开一扇门"
+  env_config:
+    obs_mode: "rgb"
+    control_mode: "pd_ee_delta_pose"
+    reward_mode: "sparse"
+  training:
+    algorithm: "PPO"
+    total_timesteps: 300000
+    learning_rate: 0.0001
+    batch_size: 128
+    n_steps: 4096
+    n_epochs: 20
+    gamma: 0.99
+  evaluation:
+    success_threshold: 0.6
+    target_rank: 100
+
+pour_liquid:
+  env_name: "PourLiquid-v0"
+  description: "精细操作任务 - 将液体从一个容器倒入另一个"
+  env_config:
+    obs_mode: "rgb"
+    control_mode: "pd_joint_pos"
+    reward_mode: "dense"
+  training:
+    algorithm: "SAC"
+    total_timesteps: 250000
+    learning_rate: 0.0003
+    buffer_size: 100000
+    batch_size: 256
+    gamma: 0.99
+  evaluation:
+    success_threshold: 0.65
+    target_rank: 90
+
+default:
+  env_name: "CustomEnv-v0"
+  description: "自定义任务"
+  env_config:
+    obs_mode: "state"
+    control_mode: "pd_joint_pos"
+    reward_mode: "dense"
+  training:
+    algorithm: "PPO"
+    total_timesteps: 100000
+    learning_rate: 0.0003
+    batch_size: 64
+  evaluation:
+    success_threshold: 0.5
+    target_rank: 150
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
