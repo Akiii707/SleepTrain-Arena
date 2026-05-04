@@ -1,0 +1,36 @@
+# SleepTrain Arena - Core Dependencies
+# Install with: pip install -r requirements.txt
+
+# Reinforcement Learning
+stable-baselines3>=2.0.0
+gymnasium>=0.29.0
+
+# ManiSkill Environment (Optional)
+mani-skill>=0.4.0
+sapien>=2.3.0
+
+# Utilities
+requests>=2.31.0
+numpy>=1.24.0
+torch>=2.0.0
+tensorboard>=2.14.0
+
+# Development
+pytest>=7.4.0
+black>=23.7.0
+flake8>=6.1.0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
